@@ -35,15 +35,20 @@ typedef struct {
   sint16 TappedDelay_DWORK1[19];       /* '<S61>/Tapped Delay' */
   sint32 UnitDelay_DSTATE;             /* '<S44>/Unit Delay' */
   struct {
-    uint_T UnitDelay19_DSTATE:1;       /* '<S53>/Unit Delay19' */
-    uint_T UnitDelay1_DSTATE_m2pk:1;   /* '<S73>/Unit Delay1' */
+    uint_T UnitDelay1_DSTATE_m2pk:1;   /* '<S76>/Unit Delay1' */
+    uint_T UnitDelay1_DSTATE_ofwc:1;   /* '<S81>/Unit Delay1' */
     uint_T UnitDelay1_DSTATE_jjio:1;   /* '<S44>/Unit Delay1' */
   } bitsForTID1;
 
+  dt_Standardize_s16p15b0 UnitDelay1_DSTATE;/* '<S53>/Unit Delay1' */
   dt_Standardize_s16p15b0 UnitDelay_DSTATE_gwvm;/* '<S30>/Unit Delay' */
   dt_Standardize_s16p15b0 UnitDelay2_DSTATE;/* '<S63>/Unit Delay2' */
-  sint16 UnitDelay_DSTATE_cvdq;        /* '<S73>/Unit Delay' */
-  sint16 UnitDelay1_DSTATE;            /* '<S30>/Unit Delay1' */
+  sint16 UnitDelay_DSTATE_cvdq;        /* '<S76>/Unit Delay' */
+  dt_Standardize_s16p15b0 UnitDelay_DSTATE_evau;/* '<S81>/Unit Delay' */
+  sint16 UnitDelay1_DSTATE_lr2t;       /* '<S30>/Unit Delay1' */
+  ENM_STRTUP_TRQ_STATUS UnitDelay19_DSTATE;/* '<S53>/Unit Delay19' */
+  uint8 is_active_c2_ASW_PhCurrGen;    /* '<S63>/sfc_TrqDecre' */
+  uint8 is_c2_ASW_PhCurrGen;           /* '<S63>/sfc_TrqDecre' */
   uint8 is_active_c1_ASW_PhCurrGen;    /* '<S53>/sfc_MotoSTMHybr' */
   uint8 is_c1_ASW_PhCurrGen;           /* '<S53>/sfc_MotoSTMHybr' */
 } DW_ASW_PhCurrGen;
@@ -170,15 +175,29 @@ extern RT_MODEL_ASW_PhCurrGen *const ASW_PhCurrGen_M;
  * '<S62>'  : 'ASW_PhCurrGen/PhCurrGen_SlwTask/vrs_StrtUpPrcdChk/rss_StrtUpPrcdChkNeed/lib_MAF_0/lib_Conversion_1'
  * '<S63>'  : 'ASW_PhCurrGen/PhCurrGen_SlwTask/vrs_StrtUpRefTqCalc/rss_StrtUpRefTqCalcNeed'
  * '<S64>'  : 'ASW_PhCurrGen/PhCurrGen_SlwTask/vrs_StrtUpRefTqCalc/rss_StrtUpRefTqCalcNeed/Compare To Constant1'
- * '<S65>'  : 'ASW_PhCurrGen/PhCurrGen_SlwTask/vrs_StrtUpRefTqCalc/rss_StrtUpRefTqCalcNeed/lib_Cnvr_1'
- * '<S66>'  : 'ASW_PhCurrGen/PhCurrGen_SlwTask/vrs_StrtUpRefTqCalc/rss_StrtUpRefTqCalcNeed/lib_DisTiInteg_0'
- * '<S67>'  : 'ASW_PhCurrGen/PhCurrGen_SlwTask/vrs_StrtUpRefTqCalc/rss_StrtUpRefTqCalcNeed/lib_DisTiInteg_0/vss_IntegrationMode'
- * '<S68>'  : 'ASW_PhCurrGen/PhCurrGen_SlwTask/vrs_StrtUpRefTqCalc/rss_StrtUpRefTqCalcNeed/lib_DisTiInteg_0/vss_IntegrationMode/vss_GenericSignalMode'
- * '<S69>'  : 'ASW_PhCurrGen/PhCurrGen_SlwTask/vrs_StrtUpRefTqCalc/rss_StrtUpRefTqCalcNeed/lib_DisTiInteg_0/vss_IntegrationMode/vss_GenericSignalMode/lib_Conversion_1'
- * '<S70>'  : 'ASW_PhCurrGen/PhCurrGen_SlwTask/vrs_StrtUpRefTqCalc/rss_StrtUpRefTqCalcNeed/lib_DisTiInteg_0/vss_IntegrationMode/vss_GenericSignalMode/lib_Conversion_2'
- * '<S71>'  : 'ASW_PhCurrGen/PhCurrGen_SlwTask/vrs_StrtUpRefTqCalc/rss_StrtUpRefTqCalcNeed/lib_DisTiInteg_0/vss_IntegrationMode/vss_GenericSignalMode/lib_Conversion_3'
- * '<S72>'  : 'ASW_PhCurrGen/PhCurrGen_SlwTask/vrs_StrtUpRefTqCalc/rss_StrtUpRefTqCalcNeed/lib_DisTiInteg_0/vss_IntegrationMode/vss_GenericSignalMode/lib_DynamicSaturator_1'
- * '<S73>'  : 'ASW_PhCurrGen/PhCurrGen_SlwTask/vrs_StrtUpRefTqCalc/rss_StrtUpRefTqCalcNeed/lib_DisTiInteg_0/vss_IntegrationMode/vss_GenericSignalMode/lib_ResettableUnitDelay_1'
+ * '<S65>'  : 'ASW_PhCurrGen/PhCurrGen_SlwTask/vrs_StrtUpRefTqCalc/rss_StrtUpRefTqCalcNeed/Compare To Constant12'
+ * '<S66>'  : 'ASW_PhCurrGen/PhCurrGen_SlwTask/vrs_StrtUpRefTqCalc/rss_StrtUpRefTqCalcNeed/lib_Cnvr_1'
+ * '<S67>'  : 'ASW_PhCurrGen/PhCurrGen_SlwTask/vrs_StrtUpRefTqCalc/rss_StrtUpRefTqCalcNeed/lib_DisTiInteg_0'
+ * '<S68>'  : 'ASW_PhCurrGen/PhCurrGen_SlwTask/vrs_StrtUpRefTqCalc/rss_StrtUpRefTqCalcNeed/lib_RateLim_0'
+ * '<S69>'  : 'ASW_PhCurrGen/PhCurrGen_SlwTask/vrs_StrtUpRefTqCalc/rss_StrtUpRefTqCalcNeed/sfc_TrqDecre'
+ * '<S70>'  : 'ASW_PhCurrGen/PhCurrGen_SlwTask/vrs_StrtUpRefTqCalc/rss_StrtUpRefTqCalcNeed/lib_DisTiInteg_0/vss_IntegrationMode'
+ * '<S71>'  : 'ASW_PhCurrGen/PhCurrGen_SlwTask/vrs_StrtUpRefTqCalc/rss_StrtUpRefTqCalcNeed/lib_DisTiInteg_0/vss_IntegrationMode/vss_GenericSignalMode'
+ * '<S72>'  : 'ASW_PhCurrGen/PhCurrGen_SlwTask/vrs_StrtUpRefTqCalc/rss_StrtUpRefTqCalcNeed/lib_DisTiInteg_0/vss_IntegrationMode/vss_GenericSignalMode/lib_Conversion_1'
+ * '<S73>'  : 'ASW_PhCurrGen/PhCurrGen_SlwTask/vrs_StrtUpRefTqCalc/rss_StrtUpRefTqCalcNeed/lib_DisTiInteg_0/vss_IntegrationMode/vss_GenericSignalMode/lib_Conversion_2'
+ * '<S74>'  : 'ASW_PhCurrGen/PhCurrGen_SlwTask/vrs_StrtUpRefTqCalc/rss_StrtUpRefTqCalcNeed/lib_DisTiInteg_0/vss_IntegrationMode/vss_GenericSignalMode/lib_Conversion_3'
+ * '<S75>'  : 'ASW_PhCurrGen/PhCurrGen_SlwTask/vrs_StrtUpRefTqCalc/rss_StrtUpRefTqCalcNeed/lib_DisTiInteg_0/vss_IntegrationMode/vss_GenericSignalMode/lib_DynamicSaturator_1'
+ * '<S76>'  : 'ASW_PhCurrGen/PhCurrGen_SlwTask/vrs_StrtUpRefTqCalc/rss_StrtUpRefTqCalcNeed/lib_DisTiInteg_0/vss_IntegrationMode/vss_GenericSignalMode/lib_ResettableUnitDelay_1'
+ * '<S77>'  : 'ASW_PhCurrGen/PhCurrGen_SlwTask/vrs_StrtUpRefTqCalc/rss_StrtUpRefTqCalcNeed/lib_RateLim_0/Chart'
+ * '<S78>'  : 'ASW_PhCurrGen/PhCurrGen_SlwTask/vrs_StrtUpRefTqCalc/rss_StrtUpRefTqCalcNeed/lib_RateLim_0/Subsystem'
+ * '<S79>'  : 'ASW_PhCurrGen/PhCurrGen_SlwTask/vrs_StrtUpRefTqCalc/rss_StrtUpRefTqCalcNeed/lib_RateLim_0/sss_DecrementFlagTrigger'
+ * '<S80>'  : 'ASW_PhCurrGen/PhCurrGen_SlwTask/vrs_StrtUpRefTqCalc/rss_StrtUpRefTqCalcNeed/lib_RateLim_0/sss_IncrementFlagTrigger'
+ * '<S81>'  : 'ASW_PhCurrGen/PhCurrGen_SlwTask/vrs_StrtUpRefTqCalc/rss_StrtUpRefTqCalcNeed/lib_RateLim_0/Subsystem/lib_ResettableUnitDelay_1'
+ * '<S82>'  : 'ASW_PhCurrGen/PhCurrGen_SlwTask/vrs_StrtUpRefTqCalc/rss_StrtUpRefTqCalcNeed/lib_RateLim_0/sss_DecrementFlagTrigger/lib_Conversion_1'
+ * '<S83>'  : 'ASW_PhCurrGen/PhCurrGen_SlwTask/vrs_StrtUpRefTqCalc/rss_StrtUpRefTqCalcNeed/lib_RateLim_0/sss_DecrementFlagTrigger/lib_Conversion_2'
+ * '<S84>'  : 'ASW_PhCurrGen/PhCurrGen_SlwTask/vrs_StrtUpRefTqCalc/rss_StrtUpRefTqCalcNeed/lib_RateLim_0/sss_DecrementFlagTrigger/lib_Conversion_3'
+ * '<S85>'  : 'ASW_PhCurrGen/PhCurrGen_SlwTask/vrs_StrtUpRefTqCalc/rss_StrtUpRefTqCalcNeed/lib_RateLim_0/sss_IncrementFlagTrigger/lib_Conversion_1'
+ * '<S86>'  : 'ASW_PhCurrGen/PhCurrGen_SlwTask/vrs_StrtUpRefTqCalc/rss_StrtUpRefTqCalcNeed/lib_RateLim_0/sss_IncrementFlagTrigger/lib_Conversion_2'
+ * '<S87>'  : 'ASW_PhCurrGen/PhCurrGen_SlwTask/vrs_StrtUpRefTqCalc/rss_StrtUpRefTqCalcNeed/lib_RateLim_0/sss_IncrementFlagTrigger/lib_Conversion_3'
  */
 #endif                                 /* RTW_HEADER_ASW_PhCurrGen_h_ */
 

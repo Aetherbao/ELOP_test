@@ -14,11 +14,11 @@
 /* Logical type definitions */
 #if (!defined(__cplusplus))
 #ifndef false
-#define false                          (0U)
+#define false (0U)
 #endif
 
 #ifndef true
-#define true                           (1U)
+#define true (1U)
 #endif
 #endif
 
@@ -62,30 +62,30 @@ typedef char_T byte_T;
  *   int8_T, int16_T, int32_T     - signed 8, 16, or 32 bit integers     *
  *   uint8_T, uint16_T, uint32_T  - unsigned 8, 16, or 32 bit integers   *
  *=======================================================================*/
-#define MAX_int8_T                     ((int8_T)(127))
-#define MIN_int8_T                     ((int8_T)(-128))
-#define MAX_uint8_T                    ((uint8_T)(255U))
-#define MAX_int16_T                    ((int16_T)(32767))
-#define MIN_int16_T                    ((int16_T)(-32768))
-#define MAX_uint16_T                   ((uint16_T)(65535U))
-#define MAX_int32_T                    ((int32_T)(2147483647))
-#define MIN_int32_T                    ((int32_T)(-2147483647-1))
-#define MAX_uint32_T                   ((uint32_T)(0xFFFFFFFFU))
-#define LOG_FILE "E:\\00_Compiler_Workspace\\VSCode\\test\\log.txt"
-
+#define MAX_int8_T ((int8_T)(127))
+#define MIN_int8_T ((int8_T)(-128))
+#define MAX_uint8_T ((uint8_T)(255U))
+#define MAX_int16_T ((int16_T)(32767))
+#define MIN_int16_T ((int16_T)(-32768))
+#define MAX_uint16_T ((uint16_T)(65535U))
+#define MAX_int32_T ((int32_T)(2147483647))
+#define MIN_int32_T ((int32_T)(-2147483647 - 1))
+#define MAX_uint32_T ((uint32_T)(0xFFFFFFFFU))
+// #define LOG_FILE "E:\\00_Compiler_Workspace\\VSCode\\test\\log.txt"
+#define LOG_FILE "log.txt"
 /* Block D-Work pointer type */
-typedef void * pointer_T;
+typedef void *pointer_T;
 
 /* Define Simulink Coder replacement data types. */
-typedef int8_T sint8;         /* User defined replacement datatype for int8_T */
-typedef uint8_T uint8;       /* User defined replacement datatype for uint8_T */
-typedef int16_T sint16;      /* User defined replacement datatype for int16_T */
-typedef uint16_T uint16;    /* User defined replacement datatype for uint16_T */
-typedef int32_T sint32;      /* User defined replacement datatype for int32_T */
-typedef uint32_T uint32;    /* User defined replacement datatype for uint32_T */
+typedef int8_T sint8;      /* User defined replacement datatype for int8_T */
+typedef uint8_T uint8;     /* User defined replacement datatype for uint8_T */
+typedef int16_T sint16;    /* User defined replacement datatype for int16_T */
+typedef uint16_T uint16;   /* User defined replacement datatype for uint16_T */
+typedef int32_T sint32;    /* User defined replacement datatype for int32_T */
+typedef uint32_T uint32;   /* User defined replacement datatype for uint32_T */
 typedef boolean_T boolean; /* User defined replacement datatype for boolean_T */
 
-#endif                                 /* RTWTYPES_H */
+#endif /* RTWTYPES_H */
 
 /*
  * File trailer for generated code.
@@ -101,4 +101,3 @@ typedef struct tag_RTM_ASW_PhVltgGen RT_MODEL_ASW_PhVltgGen;
 typedef struct tag_RTM_ASW_SigIn RT_MODEL_ASW_SigIn;
 
 typedef struct tag_RTM_ASW_OBD RT_MODEL_ASW_OBD;
-

@@ -1,5 +1,8 @@
-#include "ASW_SigIn/ASW_SigIn.h"
-#include "FOC.c"
+//#include "ASW_AST/ASW_AST_private.h"
+//#include "ASW_SigIn/ASW_SigIn.h"
+//#include "FOC.c"
+#include "FOC.h"
+//#include "ASW_AST/ASW_AST.h"
 
 #include <stdio.h>
 #include <stdio.h>
@@ -63,7 +66,7 @@ void task3(void) {
     Interface_10msTask(count_3);
     count_3++;
 }
-void get_ADC2_Data(int mV){
+/*void get_ADC2_Data(int mV){
     int data = get_ADC2_mV(mV);
     printf("%d\n",data);
 }
@@ -82,7 +85,7 @@ void get_uSplyVltg_Data(void){
     rtb_VectorConcatenate_oqqq[0] = ASW_SigIn_B.DataTypeConversion_ikt4;
 
   /* S-Function (sfix_udelay): '<S46>/Tapped Delay' */
-  memcpy(&rtb_VectorConcatenate_oqqq[1], &ASW_SigIn_DW.TappedDelay_DWORK1_nx03[0],
+  /*memcpy(&rtb_VectorConcatenate_oqqq[1], &ASW_SigIn_DW.TappedDelay_DWORK1_nx03[0],
          39U * (sizeof(dt_Standardize_u16p15b0)));
     tmp = 0U;
   for (int i = 0; i < 40; i++) {
@@ -90,13 +93,13 @@ void get_uSplyVltg_Data(void){
   }
     u16_uSplyVltg = (dt_Standardize_u16p15b0)((((sint32)tmp) << 4) / 640);
 
-}
+}*/
 
 int main(void) {
     add_task(task1, 62.5);   // 任务1，周期62.5μs
     add_task(task2, 500);    // 任务2，周期500μs
     add_task(task3, 10000);  // 任务3，周期10000μs
-    //printf("Hello, World!\n");
+    printf("Hello, World!\n");
     scheduler();  // 启动调度器
     //int data = ADC1_Get(818);
     //printf("%d\n",data);

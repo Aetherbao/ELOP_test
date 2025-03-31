@@ -1,0 +1,3 @@
+/cloudide/workspace/ELOP_test/build/CMakeFiles/main.dir
+/cloudide/workspace/ELOP_test/build/CMakeFiles/edit_cache.dir
+/cloudide/workspace/ELOP_test/build/CMakeFiles/rebuild_cache.dir

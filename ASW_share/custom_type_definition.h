@@ -1,11 +1,11 @@
 /*
  * File: custom_type_definition.h
  *
- * Code generated for Simulink model 'ASW_SigIn'.
+ * Code generated for Simulink model 'ASW_OBD'.
  *
- * Model version                  : 6.141
+ * Model version                  : 6.304
  * Simulink Coder version         : 9.9 (R2023a) 19-Nov-2022
- * C/C++ source code generated on : Tue Jan 14 13:36:13 2025
+ * C/C++ source code generated on : Tue Mar 25 10:57:19 2025
  */
 
 #ifndef RTW_HEADER_custom_type_definition_h_
@@ -24,10 +24,12 @@ typedef uint8 ENM_AG_SENS_CALIB_STATUS;
 /* enum ENM_AG_SENS_CALIB_STATUS */
 #define CALIBFAIL                      ((ENM_AG_SENS_CALIB_STATUS)0U) /* Default value */
 #define SUCCESS                        ((ENM_AG_SENS_CALIB_STATUS)1U)
-#define ALPHA_PHASE                    ((ENM_AG_SENS_CALIB_STATUS)2U)
+#define ALPHA_PHASE1                   ((ENM_AG_SENS_CALIB_STATUS)2U)
 #define BETA_PHASE                     ((ENM_AG_SENS_CALIB_STATUS)3U)
-#define WAIT_ALPHA                     ((ENM_AG_SENS_CALIB_STATUS)4U)
+#define WAIT_ALPHA1                    ((ENM_AG_SENS_CALIB_STATUS)4U)
 #define WAIT_BETA                      ((ENM_AG_SENS_CALIB_STATUS)5U)
+#define ALPHA_PHASE2                   ((ENM_AG_SENS_CALIB_STATUS)6U)
+#define WAIT_ALPHA2                    ((ENM_AG_SENS_CALIB_STATUS)7U)
 
 typedef uint8 ENM_MOTO_STATUS;
 
@@ -50,6 +52,12 @@ typedef uint8 ENM_PWM_MODE;
 #define S3APWM                         ((ENM_PWM_MODE)2U)
 #define SVPWM                          ((ENM_PWM_MODE)3U)
 #define DMINPWM                        ((ENM_PWM_MODE)4U)
+
+typedef uint8 ENM_STRTUP_TRQ_STATUS;
+
+/* enum ENM_STRTUP_TRQ_STATUS */
+#define TRQ_CST                        ((ENM_STRTUP_TRQ_STATUS)0U) /* Default value */
+#define TRQ_DECRE                      ((ENM_STRTUP_TRQ_STATUS)1U)
 
 typedef uint8 ENM_SYS_STATUS;
 
@@ -93,7 +101,7 @@ typedef uint8 ENM_TYPE_FALT;
 #define MOTO_TEMP_SENS_FALT            ((ENM_TYPE_FALT)24U)
 #define BUSOFF_FALT                    ((ENM_TYPE_FALT)25U)
 #define CRASH_FALT                     ((ENM_TYPE_FALT)26U)
-#define FAULT_RESERVED3                ((ENM_TYPE_FALT)27U)
+#define MOSOPNCIR_FALT                 ((ENM_TYPE_FALT)27U)
 #define FAULT_RESERVED4                ((ENM_TYPE_FALT)28U)
 #define FAULT_RESERVED5                ((ENM_TYPE_FALT)29U)
 
@@ -103,6 +111,7 @@ typedef uint16 dt_DutyCycl_u16p15b0;
 typedef uint16 dt_MotRstn_u16p20b0;
 typedef uint16 dt_OmodFact_u16p15b0;
 typedef sint16 dt_RadAngErr_s16r13b0;
+typedef sint16 dt_RadAng_s16r15b0;
 typedef uint16 dt_RadAng_u16r15b0;
 typedef sint16 dt_RefSpdSlewRate_s16p12b0;
 typedef uint16 dt_SpdCtrlIntgGain_u16p9b0;

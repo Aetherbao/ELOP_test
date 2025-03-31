@@ -1,11 +1,11 @@
 /*
  * File: motor_control_interface.h
  *
- * Code generated for Simulink model 'ASW_SigIn'.
+ * Code generated for Simulink model 'ASW_OBD'.
  *
- * Model version                  : 6.141
+ * Model version                  : 6.304
  * Simulink Coder version         : 9.9 (R2023a) 19-Nov-2022
- * C/C++ source code generated on : Tue Jan 14 13:36:13 2025
+ * C/C++ source code generated on : Tue Mar 25 10:57:19 2025
  */
 
 #ifndef RTW_HEADER_motor_control_interface_h_
@@ -95,7 +95,7 @@ typedef struct {
   boolean bol_flgCrashFaltFlg;
 
   /* Actual electric angle  */
-  boolean bol_flgReserved3Flg;
+  boolean bol_flgMosOpnCirFaltFlg;
 
   /* Actual electric angle  */
   boolean bol_flgReserved4Flg;
@@ -103,6 +103,97 @@ typedef struct {
   /* Actual electric angle  */
   boolean bol_flgReserved5Flg;
 } BUS_OBD_FALT_STS;
+
+typedef struct {
+  boolean bol_flgPhCurrHiLvl1Tmp;
+
+  /* Actual electric angle  */
+  boolean bol_flgHWOvrCurrTmp;
+
+  /* Actual electric angle  */
+  boolean bol_flgSplyVltgLoLvl1Tmp;
+
+  /* Actual electric angle  */
+  boolean bol_flgSplyVltgLoLvl2Tmp;
+
+  /* Actual electric angle  */
+  boolean bol_flgSplyVltgHiLvl1Tmp;
+
+  /* Actual electric angle  */
+  boolean bol_flgPwrTubPCBTempHiLvl1Tmp;
+
+  /* Actual electric angle  */
+  boolean bol_flgPwrTubPCBTempHiLvl2Tmp;
+
+  /* Actual electric angle  */
+  boolean bol_flgMotoTempHiLvl1Tmp;
+
+  /* Actual electric angle  */
+  boolean bol_flgMotoTempHiLvl2Tmp;
+
+  /* Actual electric angle  */
+  boolean bol_flgComFaltTmp;
+
+  /* Actual electric angle  */
+  boolean bol_flgMotoStallPermTmp;
+
+  /* Actual electric angle  */
+  boolean bol_flgMotoStallTmpTmp;
+
+  /* Actual electric angle  */
+  boolean bol_flgNoLdTmp;
+
+  /* Actual electric angle  */
+  boolean bol_flgBattPwrHiLvl1Tmp;
+
+  /* Actual electric angle  */
+  boolean bol_flgMotoSpdHiLvl1Tmp;
+
+  /* Actual electric angle  */
+  boolean bol_flgMotoSpdLoLvl1Tmp;
+
+  /* Actual electric angle  */
+  boolean bol_flgCtlBrdVltgLoLvl1Tmp;
+
+  /* Actual electric angle  */
+  boolean bol_flgCtlBrdVltgHiLvl1Tmp;
+
+  /* Actual electric angle  */
+  boolean bol_flgGDVltgLoLvl1Tmp;
+
+  /* Actual electric angle  */
+  boolean bol_flgGDVltgHiLvl1Tmp;
+
+  /* Actual electric angle  */
+  boolean bol_flgChipFaltTmp;
+
+  /* Actual electric angle  */
+  boolean bol_flgPhiSensFaltTmp;
+
+  /* Actual electric angle  */
+  boolean bol_flgPhCurrSensFaltTmp;
+
+  /* Actual electric angle  */
+  boolean bol_flgPwrTubPCBTempSensFaltTmp;
+
+  /* Actual electric angle  */
+  boolean bol_flgMotoTempSensFaltTmp;
+
+  /* Actual electric angle  */
+  boolean bol_flgBusOffFaltTmp;
+
+  /* Actual electric angle  */
+  boolean bol_flgCrashFaltTmp;
+
+  /* Actual electric angle  */
+  boolean bol_flgMosOpnCirFaltTmp;
+
+  /* Actual electric angle  */
+  boolean bol_flgReserved4Tmp;
+
+  /* Actual electric angle  */
+  boolean bol_flgReserved5Tmp;
+} BUS_OBD_FALT_STS_TMP;
 
 typedef struct {
   /* Reference mechanical speed in RPM */
@@ -140,8 +231,6 @@ typedef struct {
 
   /* Measured rotor angle by the GMR sensor */
   dt_Temp_u8p0bn40 u8_tPCBTempSubs;
-  dt_DutyCycl_u16p15b0 u16_ampMaxNrmVltgAmp;
-  dt_Standardize_s16p15b0 s16_uRefDaxVltg;
   boolean bol_flgOvrTstCtlUDS2F;
 
   /* Reference Direct and Quadrature curents */
@@ -187,11 +276,10 @@ typedef struct {
   boolean bol_flgShOffFlg;
   dt_Standardize_s16p15b0 s16_nRefElecSpd;
   ENM_SYS_STATUS enm_stSysSt;
-  dt_Standardize_u16p15b0 u16_ampMaxVltgAmp;
-  dt_Standardize_s16p15b0 s16_uRefDaxVltgLim;
-  dt_Standardize_s16p15b0 s16_uRefQaxVltgLim;
   dt_Standardize_s16p15b0 s16_pwrSplyElecPwr;
   ENM_AG_POS_EVAL_MODE enm_modeAgEvalMode;
+  dt_RadAng_u16r15b0 u16_phiSensElecAgDvt;
+  dt_Standardize_s16p15b0 s16_nActElecSpdComFlt;
 } BUS_AST_SLW_TASK_OUT;
 
 typedef struct {
@@ -250,7 +338,7 @@ typedef struct {
   dt_Temp_u8p0bn40 u8_tMotoTemp;
 
   /* Actual electric angle  */
-  boolean bol_flgComLosFaltRaw;
+  uint8 bol_flgComLosFaltRaw;
 
   /* Actual electric angle  */
   uint8 u8_ctComRolCnt;
@@ -294,6 +382,8 @@ typedef struct {
   dt_Temp_u8p0bn40 u8_tMCUTemp;
   dt_Temp_u8p0bn40 u8_tPCBTempSubs;
   dt_Standardize_u16p15b0 u16_uGDVltg;
+  boolean bol_flgMosOpnCirFalt;
+  boolean bol_ComIf_flgComLosFaltRaw;
 } BUS_OBD_SLW_TASK_IN;
 
 typedef struct {
@@ -310,6 +400,16 @@ typedef struct {
 
   /* Reference Direct and Quadrature curents */
   boolean bol_flgPhiSensFaltRawFlg;
+
+  /* Reference Direct and Quadrature curents */
+  boolean bol_flgComNodeLosFaltDeb;
+
+  /* Reference Direct and Quadrature curents */
+  boolean bol_flgComRolCntFaltDeb;
+
+  /* Reference Direct and Quadrature curents */
+  boolean bol_flgCRCFaltDeb;
+  BUS_OBD_FALT_STS_TMP busOBD_FaltStTmp;
 } BUS_OBD_SLW_TASK_OUT;
 
 typedef struct {
@@ -332,6 +432,9 @@ typedef struct {
 
   /* Reference Direct and Quadrature currents */
   ENM_AG_POS_EVAL_MODE enm_modeAgEvalMode;
+
+  /* Reference Direct and Quadrature currents */
+  dt_RadAng_s16r15b0 s16_phiOpnLpAgClsLpAgDvt;
 } BUS_PHCURRGEN_SLW_TASK_IN;
 
 typedef struct {
@@ -373,13 +476,8 @@ typedef struct {
   dt_Standardize_s16p15b0 s16_nRmpRefElecSpd;
 
   /* Reference electric angle in align state */
-  dt_Standardize_u16p15b0 u16_ampMaxVltgAmp;
-
-  /* Reference electric angle in align state */
-  dt_Standardize_s16p15b0 s16_uRefDaxVltgLim;
-
-  /* Reference electric angle in align state */
-  dt_Standardize_s16p15b0 s16_uRefQaxVltgLim;
+  dt_Temp_u8p0bn40 u8_tPCBTempSubs;
+  dt_DutyCycl_u16p15b0 u16_ampMaxNrmVltgAmp;
 } BUS_PHVLTGGEN_MED_TASK_IN;
 
 typedef struct {
@@ -403,9 +501,9 @@ typedef struct {
 
   /* Reference Direct and Quadrature currents */
   dt_Standardize_s16p15b0 s16_uModulDaxQaxVltg[2];
-  dt_Standardize_s16p15b0 s16_uRefDaxVltg;
   dt_RadAng_u16r15b0 u16_phiSenlElecAgSensElecAgDvt;
   dt_Standardize_u16p15b0 u16_psiEstPermMagFlx;
+  dt_RadAng_s16r15b0 s16_phiOpnLpAgClsLpAgDvt;
 } BUS_PHVLTGGEN_MED_TASK_OUT;
 
 typedef struct {
@@ -418,6 +516,15 @@ typedef struct {
   /* Reference Direct and Quadrature curents */
   uint16 u16_uADActPhCurrOfs;
   uint8 u8_numSectNum;
+
+  /* Reference Direct and Quadrature curents */
+  uint16 u16_uADSplyVltg;
+
+  /* Reference Direct and Quadrature curents */
+  dt_RadAng_u16r15b0 u16_phiDvtSensElecAg;
+
+  /* Reference Direct and Quadrature curents */
+  boolean bol_enPosSCDCalibEnFlg;
 } BUS_SIGIN_MED_TASK_IN;
 
 typedef struct {
@@ -426,12 +533,12 @@ typedef struct {
 
   /* Duty cycle amplitude */
   dt_Standardize_s16p15b0 s16_iActPhCurr[3];
+
+  /* Reference Direct and Quadrature curents */
+  dt_Standardize_u16p15b0 u16_uSplyVltg;
 } BUS_SIGIN_MED_TASK_OUT;
 
 typedef struct {
-  /* Reference Direct and Quadrature curents */
-  uint16 u16_uADSplyVltg;
-
   /* Reference Direct and Quadrature curents */
   uint16 u16_uADCtlBrdVltg;
 
@@ -451,9 +558,6 @@ typedef struct {
 } BUS_SIGIN_SLW_TASK_IN;
 
 typedef struct {
-  /* Reference Direct and Quadrature curents */
-  dt_Standardize_u16p15b0 u16_uSplyVltg;
-
   /* Reference Direct and Quadrature curents */
   dt_Standardize_u16p15b0 u16_uCtlBrdVltg;
 

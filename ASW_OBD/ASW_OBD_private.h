@@ -98,10 +98,6 @@ extern void ASW_OBD_lib_FaltDefd_21(boolean rtu_stFaltDeb, boolean
   boolean *rty_stFaltDef_Tmpr, boolean *rty_stFaltDef_Perm, uint8
   *rty_FaltCycAccCnt, uint16 rtp_lb_FaltWaitRecvCnt, DW_lib_FaltDefd_21_ASW_OBD *
   localDW);
-extern void ASW_OBD_lib_Deb_5_Init(boolean *rty_lb_genOutp, DW_lib_Deb_5_ASW_OBD
-  *localDW);
-extern boolean ASW_OBD_lib_Deb_5(boolean rtu_lb_bolInp, uint16 rtu_lb_cntDebConf,
-  uint16 rtu_lb_cntDebRcvy, DW_lib_Deb_5_ASW_OBD *localDW);
 extern void ASW_OBD_sfc_Debounce_Init(boolean *rty_lb_genOutp,
   DW_sfc_Debounce_ASW_OBD *localDW);
 extern void ASW_OBD_sfc_Debounce(boolean rtu_lb_bolInp, uint16 rtu_lb_cntDebConf,
@@ -137,6 +133,12 @@ extern void ASW_OBD_lib_FaltDefd_14(boolean rtu_stFaltDeb, boolean
   boolean *rty_stFaltDef_Tmpr, boolean *rty_stFaltDef_Perm, uint8
   *rty_FaltCycAccCnt, uint16 rtp_lb_FaltWaitRecvCnt, DW_lib_FaltDefd_14_ASW_OBD *
   localDW);
+extern void ASW_OBD_lib_Deb_12_Init(boolean *rty_lb_genOutp,
+  DW_lib_Deb_12_ASW_OBD *localDW);
+extern boolean ASW_OBD_lib_Deb_12(boolean rtu_lb_bolInp, uint16
+  rtu_lb_cntDebConf, uint16 rtu_lb_cntDebRcvy, DW_lib_Deb_12_ASW_OBD *localDW);
+extern void CANHeartLosCheck(void);
+extern void CANSigLosCheck(void);
 extern void ASW_OBD_sss_FaltLvlConf(void);
 extern void ASW_OBD_sss_FaltLvl2Conf(void);
 extern void ASW_OBD_sss_FaltEnFlgConf(void);

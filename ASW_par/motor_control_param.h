@@ -1,13 +1,12 @@
 /*
  * motor_control_param.h
  *
- * Declaration of constants related to motor control 
+ * Declaration of constants related to motor control
  *
  */
- 
- 
-#include "../ASW_share/rtwtypes.h"
+
 #include "../ASW_share/custom_type_definition.h"
+#include "../ASW_share/rtwtypes.h"
 
 /* Const memory section */
 /* Exported data declaration */
@@ -36,8 +35,8 @@ extern const dt_Standardize_s16p15b0 Gs16_iPhCurrLim_CUR[6];
 extern const dt_Temp_u8p0bn40 Gs16_iPhCurrLim_CUR_tPCBTemp_X[6];
 extern const dt_Standardize_s16p15b0 Gs16_iSplyCurrTempLim_CUR[6];
 extern const dt_Temp_u8p0bn40 Gs16_iSplyCurrTempLim_CUR_tPCBTemp_X[6];
-extern const dt_Standardize_s16p15b0 Gs16_iSplyCurrVltgLim_CUR[5];
-extern const dt_Standardize_u16p15b0 Gs16_iSplyCurrVltgLim_CUR_uSplyVltg_X[5];
+extern const dt_Standardize_s16p15b0 Gs16_iSplyCurrVltgLim_CUR[7];
+extern const dt_Standardize_u16p15b0 Gs16_iSplyCurrVltgLim_CUR_uSplyVltg_X[7];
 extern const dt_Standardize_s16p15b0 Gs16_nAlgnRefElecSpd_C;
 extern const dt_Standardize_s16p15b0 Gs16_nLmpHmeRefMechSpd_C;
 extern const dt_Standardize_s16p15b0 Gs16_nMaxMotoSpdDvtConfTrs_C;
@@ -57,10 +56,12 @@ extern const dt_Standardize_s16p15b0 Gs16_nStrtUpProcTolcElecSpd_C;
 extern const dt_Standardize_s16p15b0 Gs16_nUDS2FRefMechSpd_C;
 extern const sint16 Gs16_tCtlVltgDelTi_C;
 extern const sint16 Gs16_tiSenlElecAgDel_C;
+extern const sint16 Gs16_tiPhVltgAgDel_C;
 extern const dt_Standardize_s16p15b0 Gs16_trqInitCondTq_C;
 extern dt_Standardize_s16p15b0 Gs16_trqMaxStrtUpTq_C;
 extern const dt_Standardize_s16p15b0 Gs16_trqRefTqAlgnVal_C;
 extern const dt_Standardize_s16p15b0 Gs16_trqTqUpLim_C;
+extern const dt_Standardize_s16p15b0 Gs16_trqTmpStallTqUpLim_C;
 extern const uint16 Gu16_ctAlgnAlPhStCnt_C;
 extern const uint16 Gu16_ctAlgnBePhStCnt_C;
 extern const uint16 Gu16_ctAlgnStEndCnt_C;
@@ -227,3 +228,21 @@ extern const dt_Standardize_u16p15b0 Gu16_uLimHmeSplyVltgRcvyTrs_C;
 extern const dt_Temp_u8p0bn40 Gu8_tNTCTempSensOpnCir_C;
 extern const uint16 Gu16_ctCrashFaltConfCnt_C;
 extern const uint16 Gu16_ctCrashFaltRcvyCnt_C;
+extern const dt_Standardize_s16p15b0 Gs16_nNoLdJudgActElecSpd_C;
+extern const dt_Temp_u8p0bn40 Gu8_tNTCTempSensNoOpnCir_C;
+extern const dt_Temp_u8p0bn40 Gu8_facPLLCtlKp_MAP_tPCBTempSubs_X[4];
+extern const dt_Standardize_s16p15b0 Gs16_facPLLCtlKp_MAP_nActElecSpd_Y[4];
+extern uint16 Gu16_facPLLCtlKp_MAP[4][4];
+extern uint16 Gu16_facPLLCtlKi_MAP[4][4];
+extern const dt_RadAng_u16r15b0 Gu16_phiMinOpnLpClsLpAgDvt_C;
+extern const dt_Standardize_s16p15b0 Gs16_trqMinStrtUpRefTq_C;
+extern const uint16 Gu16_facComSpdFltCoeff_C;
+extern const uint16 Gu16_ctMosOpnCirFaltConfCnt_C;
+extern const uint16 Gu16_ctMosOpnCirFaltRcvyCnt_C;
+extern const sint16 Gs16_facStrtUpTrqDecRiseRate_C;
+extern const sint16 Gs16_facStrtUpTrqDecFallRate_C;
+extern const dt_Temp_u8p0bn40 Gu8_tColdStrtPCBTempConfTrs_C;
+extern const dt_Standardize_s16p15b0 Gs16_iColdStrtPhCurrHiLvl1ConfTrs_C;
+extern const dt_Standardize_s16p15b0 Gs16_iColdStrtPhCurrHiLvl1RcvyTrs_C;
+extern const uint8 Gu8_RollingMin_C;
+extern const uint8 Gu8_RollingMax_C;
